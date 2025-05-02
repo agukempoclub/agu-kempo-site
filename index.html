@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!-- このファイルがHTML5で書かれていることを示す宣言 -->
+<html lang="ja">
+<head>
+    <!-- 文字コードをUTF-8（日本語対応）に設定 -->
+    <meta charset="utf-8">
+    <!-- スマホやタブレットでも見やすく表示するための設定 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ブラウザのタブに表示されるタイトル -->
+    <title>体育会拳法部公式 TOP｜青山学院大学</title>
+    
+    <!-- 日本語フォント「Noto Sans JP」をGoogleから読み込む -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- 外部スタイルシートを読み込む -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- サイトの一番上に表示されるヘッダー -->
+    <header class="header">
+        <h1>青山学院大学 体育会拳法部</h1>
+    </header>
+
+    <!-- ナビゲーション（ページ内リンクのメニュー） -->
+    <nav class="nav-container">
+        <ul class="nav-menu">
+            <!-- 各ページへのリンク -->
+            <li><a href="index.html">TOP</a></li>
+            <li><a href="about.html">日本拳法とは</a></li>
+            <li><a href="members.html">活動内容＜大会編🥋＞</a></li>
+            <li><a href="contents.html">活動内容＜練習編🥊＞</a></li>
+        </ul>
+    </nav>
+
+    <!-- スライドショー（画像が切り替わる部分） -->
+    <div class="slideshow-container">
+        <!-- 表示中の画像 -->
+        <img id="slideshow" 
+             class="slide-image"
+             src="images/top/蹴り.jpeg" 
+             alt="活動風景">
+        
+        <!-- 左右の切り替えボタン -->
+        <button class="slide-button prev" onclick="changeSlide(-1)">◀</button>
+        <button class="slide-button next" onclick="changeSlide(1)">▶</button>
+    </div>
+
+    <!-- フッター（ページの下部） -->
+    <footer class="footer">
+        <!-- SNSリンク -->
+        <div class="social-links">
+            <a href="https://www.instagram.com/agu_kempo/" target="_blank">
+                <img src="images/top/instagram_icon.png" 
+                     class="social-icon" 
+                     alt="公式Instagram">
+            </a>
+            <a href="https://x.com/agu_kempo" target="_blank">
+                <img src="images/top/x_icon.png" 
+                     class="social-icon" 
+                     alt="公式X（旧Twitter）">
+            </a>
+        </div>
+        
+        <!-- フッター内のメニュー -->
+        <nav class="footer-nav">
+            <a href="index.html">TOP</a>
+            <a href="about.html">日本拳法とは</a>
+            <a href="members.html">活動内容＜大会編🥋＞</a>
+            <a href="contents.html">活動内容＜練習編🥊＞</a>
+            <a href="#top">ページトップ</a>
+        </nav>
+
+        <!-- 著作権表記 -->
+        <p class="copyright">
+            © 2025 青山学院大学 体育会拳法部 公式<br>
+        </p>
+    </footer>
+
+    <!-- スライドショーの動作をコントロールするJavaScript -->
+    <script>
+        // 表示する画像の一覧
+        const images = [
+            "images/top/蹴り.jpeg",
+            "images/top/整列.jpeg",  
+            "images/top/エンジン.png",  
+            "images/top/集合.png"  
+        ];
+
+        let currentIndex = 0; // 現在表示している画像の番号
+        const slideshow = document.getElementById('slideshow');
+
+        // スライドを切り替える関数（directionは-1または+1）
+        function changeSlide(direction) {
+            // 画像の番号を更新（ループするようにする）
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+            // 一度画像を薄くしてから新しい画像に切り替える
+            slideshow.style.opacity = 0;
+            setTimeout(() => {
+                slideshow.src = images[currentIndex];
+                slideshow.style.opacity = 1;
+            }, 300); // 0.3秒後に画像切り替え
+        }
+
+        // 5秒ごとに次の画像に自動で切り替える
+        setInterval(() => changeSlide(1), 5000);
+    </script>
+</body>
+</html>
