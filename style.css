@@ -201,6 +201,13 @@ copyright {
     }
 }
 
+@media screen and (max-width: 480px) {
+    .header h1 {
+        font-size: clamp(1.2rem, 5vw, 2rem); /* 画面幅によって自動で調整 */
+        white-space: nowrap; /* 改行させない */
+      }
+  }
+
 /* ==========================
    アニメーション
    ========================== */
