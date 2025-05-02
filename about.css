@@ -1,170 +1,294 @@
-<!DOCTYPE html>
-<!-- このHTML文書がHTML5で書かれていることを指定します -->
-<html lang="ja">
-<!-- HTML文書の言語が日本語であることを示します -->
+/* ===============================
+   グローバル変数（色・フォント）
+   =============================== */
+   :root {
+    --main-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --light-gray: #f8f9fa;
+    --dark-gray: #34495e;
+    --font-main: 'Noto Sans JP', sans-serif;
+}
 
-<head>
-    <!-- 文字コードをUTF-8（日本語も含めて様々な文字に対応）に設定 -->
-    <meta charset="utf-8">
-    <!-- スマホなどでも見やすく表示するための設定 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ブラウザのタブに表示されるページのタイトル -->
-    <title>日本拳法とは｜青山学院大学 体育会拳法部</title>
-    <!-- CSSファイル（デザイン用のファイル）を読み込み -->
-    <link rel="stylesheet" href="about.css">
-    <!-- Webフォント（見た目を良くする文字）を読み込み -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
+/* ===============================
+   全体の基本設定
+   =============================== */
+body {
+    font-family: var(--font-main);
+    line-height: 1.6;
+    color: var(--dark-gray);
+    margin: 0;
+    background-color: #ffffff;
+}
 
-<body>
-    <!-- サイトの上部にあるタイトルエリア -->
-    <header class="header">
-        <h1>青山学院大学 体育会拳法部</h1>
-    </header>
+/* ===============================
+   共通アニメーション
+   =============================== */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
 
-    <!-- ナビゲーション（ページ移動用のメニュー） -->
-    <nav class="nav-container">
-        <ul class="nav-menu">
-            <!-- メニューの各項目（他のページへ移動できます） -->
-            <li><a href="index.html">TOP</a></li>
-            <li><a href="about.html">日本拳法とは</a></li>
-            <li><a href="members.html">活動内容＜大会編🥋＞</a></li>
-            <li><a href="contents.html">活動内容＜練習編🥊＞</a></li>
-        </ul>
-    </nav>
+@keyframes slideInFromLeft {
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
 
-    <!-- メインの内容（中央部分） -->
-    <main class="main-container">
-        <!-- 日本拳法の紹介セクション -->
-        <section>
-            <h2 class="section-title">日本拳法とは</h2>
-            <p>このページは「日本拳法とは」について解説していきます🥊</p>
-            <p>私たち青学拳法部では日本拳法という武道に取り組んでいます！
-                "日本拳法"と聞いてなんだろう...？と思った方も多いと思います！
-                ぜひこの機会に日本拳法について知っていただけたら嬉しいです🥰</p>
+@keyframes fadeInScale {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
 
-            <!-- 画像と説明を2列に並べるエリア -->
-            <div class="image-grid">
-                <!-- 1枚目の画像と説明 -->
-                <div class="image-card">
-                    <img src="images/about/説明1.jpg" alt="青山学院大学 体育会 拳法部 日本拳法">
-                    <div class="image-content">
-                        <h3>安全に楽しめる格闘技</h3>
-                        <p>防具を着用することで、打撃技から投げ技まで安全に練習できます</p>
-                    </div>
-                </div>
-                <!-- 2枚目の画像と説明 -->
-                <div class="image-card">
-                    <img src="images/about/説明2.jpg" alt="多様な技のバリエーション">
-                    <div class="image-content">
-                        <h3>スタイル</h3>
-                        <p>打撃・投げ技・寝技・関節技など様々な技術を習得できます</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+/* ===============================
+   ヘッダー
+   =============================== */
+.header {
+    background: var(--main-color);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-out;
+}
 
-        <!-- 防具について紹介するセクション -->
-        <section>
-            <h2 class="section-title">防具の特徴</h2>
-            <div class="image-grid">
-                <div class="image-card">
-                    <img src="images/about/説明3.jpg" alt="防具の詳細説明">
-                    <div class="image-content">
-                        <h3>安全性と機能性</h3>
-                        <p>衝撃吸収性に優れた防具で安全を確保</p>
-                    </div>
-                </div>
-                <div class="image-card">
-                    <img src="images/about/説明4.jpg" alt="その他の技">
-                    <div class="image-content">
-                        <h3>その他の技</h3>
-                        <p>自分に合ったファイトスタイルで勝利を目指そう</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+/* ===============================
+   ナビゲーション
+   =============================== */
+.nav-container {
+    background: white;
+    border-bottom: 2px solid var(--light-gray);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    animation: fadeIn 1s ease-out;
+}
 
-        <!-- 日本拳法が向いている人を紹介するセクション -->
-        <section class="recommend-section">
-            <h2 class="section-title">こんな人におすすめ！</h2>
-            <div class="image-grid">
-                <div class="image-card">
-                    <img src="images/about/説明5.jpg" alt="おすすめポイント1">
-                    <div class="image-content">
-                        <h3>新しい挑戦をしたい方</h3>
-                        <p>格闘技に興味のある人👊、強くなりたい人🔥、筋肉をつけたい人💪、最高の仲間が欲しい人👭、運動がしたい人🏃‍♂️、初心者の人大歓迎です🔰🫶🏻</p>
-                    </div>
-                </div>
-                <div class="image-card">
-                    <img src="images/about/説明6.jpg" alt="おすすめポイント2">
-                    <div class="image-content">
-                        <h3>仲間と成長したい方</h3>
-                        <p>拳法部では男女・経験問わず、選手とマネージャーを大募集中✊🏻
-                            さがキャン生の選手、マネージャーも大歓迎です🌸
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+.nav-menu {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+}
 
-        <!-- 最後の募集メッセージセクション -->
-        <section>
-            <h2 class="section-title">一緒に始めよう！</h2>
-            <div class="image-grid">
-                <div class="image-card">
-                    <img src="images/top/集合.png" alt="青山学院大学 体育会拳法部 部員">
-                    <div class="image-content">
-                        <h3>仲間募集中！</h3>
-                        <p>初心者から経験者まで、マネージャーも大歓迎です！</p>
-                        <!-- 大会編のページへリンク -->
-                        <a href="members.html" class="cta-button">活動内容＜大会編🥋＞を見る →</a>
-                    </div>
-                </div>
-                <div class="image-card">
-                    <img src="images/about/練習.jpg" alt="青山学院大学 体育会 拳法部 日常練習の様子">
-                    <div class="image-content">
-                        <h3>充実した活動</h3>
-                        <p>充実した学生生活を一緒に送ろう！</p>
-                        <p>少しでも興味がある方はインスタのDMに『体験/見学希望です✨』とお声がけ下さい💞
-                           集合時間や持ち物等をご連絡いたします❤️‍🔥</p>
-                        <!-- 練習編のページへリンク -->
-                        <a href="contents.html" class="cta-button">活動内容＜練習編🥊＞を見る →</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+.nav-menu a {
+    color: var(--dark-gray);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
 
-    <!-- フッター（ページの一番下） -->
-    <footer class="footer">
-        <!-- SNSのリンク（InstagramとX） -->
-        <div class="social-links">
-            <a href="https://www.instagram.com/agu_kempo/" target="_blank">
-                <img src="images/top/instagram_icon.png" 
-                     class="social-icon" 
-                     alt="公式Instagram">
-            </a>
-            <a href="https://x.com/agu_kempo" target="_blank">
-                <img src="images/top/x_icon.png" 
-                     class="social-icon" 
-                     alt="公式X（旧Twitter）">
-            </a>
-        </div>
+.nav-menu a:nth-child(1) { animation-delay: 0.5s; }
+.nav-menu a:nth-child(2) { animation-delay: 0.6s; }
+.nav-menu a:nth-child(3) { animation-delay: 0.7s; }
+.nav-menu a:nth-child(4) { animation-delay: 0.8s; }
 
-        <!-- フッターのナビゲーション -->
-        <nav class="footer-nav">
-            <a href="index.html">TOP</a>
-            <a href="about.html">日本拳法とは</a>
-            <a href="members.html">活動内容＜大会編🥋＞</a>
-            <a href="contents.html">活動内容＜練習編🥊＞</a>
-            <a href="#top">ページトップ</a>
-        </nav>
+.nav-menu a:hover,
+.footer-nav a:hover {
+    color: white;
+    background: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
 
-        <!-- コピーライト（著作権表記） -->
-        <p class="copyright">
-            © 2025 青山学院大学 体育会拳法部 公式<br>
-        </p>
-    </footer>
-</body>
-</html>
+/* ===============================
+   メインコンテンツ
+   =============================== */
+.main-container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.section-title {
+    color: var(--main-color);
+    border-left: 4px solid var(--accent-color);
+    padding-left: 1rem;
+    margin: 2rem 0;
+    font-size: 1.8rem;
+    animation: slideInFromLeft 1s ease-out;
+}
+
+
+
+/* ===============================
+   グリッド表示（画像カード）
+   =============================== */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.image-card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background: white;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 1s ease;
+}
+
+.image-card img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    background-color: white;
+    display: block;
+}
+
+.image-content {
+    padding: 1rem;
+    background: white;
+}
+
+/* ===============================
+   おすすめセクション
+   =============================== */
+.recommend-section {
+    background: var(--light-gray);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 3rem 0;
+}
+
+/* ===============================
+   フッター
+   =============================== */
+.social-container {
+    text-align: center;
+    padding: 3rem 0;
+    background: var(--light-gray);
+}
+
+.footer {
+    background: var(--main-color);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1.5rem 0;
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.footer-nav a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+}
+
+.footer-nav a:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+copyright {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* ===============================
+   CTAボタン
+   =============================== */
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin: 2rem 0;
+}
+
+.cta-button:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* ===============================
+   動画表示
+   =============================== */
+.video-section {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.video-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    animation: fadeInScale 1s ease-out;
+}
+
+/* ===============================
+   レスポンシブ対応
+   =============================== */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .slide-button {
+        padding: 0.8rem;
+        font-size: 1.2rem;
+    }
+
+    .footer-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-card img {
+        max-height: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .image-card img {
+        max-height: 500px;
+    }
+}
